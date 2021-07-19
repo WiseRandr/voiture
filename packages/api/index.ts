@@ -1,3 +1,5 @@
+import registerCollection from "config/collection.register";
+import loadFixtures from "config/fixtures/fixtures";
 import express, { Application } from "express";
 import GraphqlHandler from "graphql/graphql";
 
@@ -5,6 +7,8 @@ const port = process.env.PORT || 8000;
 const path: string = "/graphql";
 
 async function Boot() {
+  await registerCollection();
+  await loadFixtures();
   const app: Application = express();
   const graphql = new GraphqlHandler();
   
