@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "voiture",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "app:start": "yarn workspace app start",
+    "api:start": "yarn workspace api start",
+    "start": "concurrently --kill-others \"yarn app:start\"  \"yarn api:start\""
+  },
+  "dependencies": {
+    "concurrently": "^6.2.0"
+  }
+}

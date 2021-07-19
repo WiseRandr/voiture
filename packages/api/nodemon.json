@@ -1,0 +1,8 @@
+{
+  "restartable": "rs",
+  "ignore": [".git", "node_modules/", "dist/", "Dockerfile"],
+  "watch": [".", ".env"],
+  "exec": "ts-node -r tsconfig-paths/register -r dotenv/config index.ts dotenv_config_path=.env",
+  "env": { "NODE_ENV": "development" },
+  "ext": "js,json,ts,env"
+}
