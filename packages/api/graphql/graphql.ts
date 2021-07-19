@@ -3,6 +3,7 @@ import { ApolloServer } from "apollo-server-express";
 import { Application } from "express";
 import { buildSchema } from "type-graphql";
 import VoitureResolver from "./resolvers/voiture.resolver";
+import UserResolver from "./resolvers/user.resolver";
 
 
 export default class GraphqlHandler {
@@ -17,6 +18,6 @@ export default class GraphqlHandler {
   }
   
   async buildSchema() {
-    return await buildSchema({ resolvers: [ VoitureResolver ] })
+    return await buildSchema({ resolvers: [ VoitureResolver, UserResolver ] })
   }
 }

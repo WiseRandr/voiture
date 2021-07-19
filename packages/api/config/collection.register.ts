@@ -4,4 +4,5 @@ export default async function registerCollection() {
   await Database.registerCollection('voituremarque');
   await Database.registerCollection('voiture');
   await Database.registerCollection('user');
+  await Database.registerCollection('comment');
 }
