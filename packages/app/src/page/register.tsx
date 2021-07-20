@@ -34,12 +34,12 @@ export default function Register() {
 
       <div>
         <label>Mot de passe</label>
-        <input type="text" value={data.password} name="password" onChange={onChange} />
+        <input type="password" value={data.password} name="password" onChange={onChange} />
       </div>
 
       <div>
         <label>Confirmez mot de passe</label>
-        <input type="text" value={data.repeatpassword} name="repeatpassword" onChange={onChange} />
+        <input type="password" value={data.repeatpassword} name="repeatpassword" onChange={onChange} />
       </div>
 
       <div>
