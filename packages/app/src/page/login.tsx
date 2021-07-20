@@ -1,5 +1,6 @@
 import { useMutation } from "@apollo/client";
 import { useCallback } from "react";
+import LoginSVG from "src/assets/svg/login.svg";
 import { CREATE_TOKEN } from "src/graphql/auth/auth.mutation";
 import useForm from "src/hooks/useForm"
 
@@ -17,20 +18,26 @@ export default function Login() {
     }
   }, [createToken, data]);
   
-  return <div>
-    <div>Login</div>
-    <form onSubmit={onSubmit}>
-      <div>
-        <label>Username</label>
-        <input type="text" value={data.username} name="username" onChange={onChange} />
-      </div>
+  return <div className="d-flex flex-column align-items-center justify-content-center h-100">
+    <div className="card bg-primary text-white">
+      <div className="card-body">
+        <div className="h2 text-center py-3">Se connecter</div>
+        <form onSubmit={onSubmit}>
+          <div className="mb-3">
+            <label>Pseudo</label>
+            <input type="text" value={data.username} name="username" onChange={onChange} />
+          </div>
 
-      <div>
-        <label>Password</label>
-        <input type="password" value={data.password} name="password" onChange={onChange} />
+          <div>
+            <label>Mot de passe</label>
+            <input type="password" value={data.password} name="password" onChange={onChange} />
+          </div>
+          
+          <button type="submit" className="btn btn-success text-white mt-4 mx-auto d-block">
+            <LoginSVG />
+          </button>
+        </form>
       </div>
-      
-      <button type="submit">Se connecter</button>
-    </form>
+    </div>
   </div>
 }
