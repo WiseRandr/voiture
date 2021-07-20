@@ -2,6 +2,8 @@ import { ArgsType, Field, ObjectType } from "type-graphql";
 
 @ObjectType()
 export class UserData {
+  password: string;
+
   @Field()
   id: string;
 
@@ -13,9 +15,6 @@ export class UserData {
 
   @Field()
   dateofbirth: string;
-
-  @Field()
-  password: string;
 
   @Field()
   role: string;

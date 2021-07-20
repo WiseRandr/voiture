@@ -1,7 +1,7 @@
 import { ApolloError } from "apollo-server-express";
 import UserHelper from "helpers/user/user.helper";
 import { UserAddInput, UserData } from "interface/user.int";
-import { Args, Mutation, Resolver } from "type-graphql";
+import { Arg, Args, Mutation, Resolver } from "type-graphql";
 
 @Resolver()
 export default class UserResolver {
@@ -14,5 +14,10 @@ export default class UserResolver {
     } catch(e) {
       throw new ApolloError(e.message);
     }
+  }
+
+  @Mutation(returns => String)
+  async createToken(@Arg('username') username: string, @Arg('password') password: string) {
+    return this._user.login(username, password);
   }
 }

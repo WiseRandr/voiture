@@ -2061,6 +2061,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.17.5.tgz#b59daf6a7ffa461b5648456ca59050ba8e40ed54"
   integrity sha512-bjqH2cX/O33jXT/UmReo2pM7DIJREPMnarixbQ57DOOzzFaI6D2+IcwaJQaJpv0M1E9TIhPCYVxrkcityLjlqA==
 
+"@types/node@^15.0.1":
+  version "15.14.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.14.2.tgz#7af8ab20156586f076f4760bc1b3c5ddfffd1ff2"
+  integrity sha512-dvMUE/m2LbXPwlvVuzCyslTEtQ2ZwuuFClDrOQ6mp2CenCg971719PTILZ4I6bTP27xfFFc+o7x2TkLuun/MPw==
+
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.1.tgz#d3357479a0fdfdd5907fe67e17e0a85c906e1301"
@@ -4815,6 +4820,13 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
+ecdsa-sig-formatter@^1.0.5:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.11.tgz#ae0f0fa2d85045ef14a817daa3ce9acd0489e5bf"
+  integrity sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ==
+  dependencies:
+    safe-buffer "^5.0.1"
+
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
@@ -7429,6 +7441,11 @@ jsonfile@^6.0.1:
     array-includes "^3.1.2"
     object.assign "^4.1.2"
 
+jwt-decode@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-3.1.2.tgz#3fb319f3675a2df0c2895c8f5e9fa4b67b04ed59"
+  integrity sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A==
+
 keyv@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-3.1.0.tgz#ecc228486f69991e49e9476485a5be1e8fc5c4d9"
@@ -8106,6 +8123,15 @@ nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
+
+njwt@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/njwt/-/njwt-1.1.0.tgz#9ae48b96df915dced5c2f49caebdd93c0950d708"
+  integrity sha512-lL9oQIc9GYy9ILyHpSTSEhcZHiB0yvCDBWf9EDGLYo2D+8oSZwzhIV5WV0bFEfIqmCIL720ZQyDCXyJM6YrpaQ==
+  dependencies:
+    "@types/node" "^15.0.1"
+    ecdsa-sig-formatter "^1.0.5"
+    uuid "^3.3.2"
 
 no-case@^3.0.4:
   version "3.0.4"
