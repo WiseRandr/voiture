@@ -6,7 +6,7 @@ import { VoitureInterface } from "src/interface/voiture.int";
 
 export default function VoiturePageSingle() {
   const params = useParams();
-  const { data, loading } = useQuery(VOITURE, { variables: { id: (params as any)?.voitureid } });
+  const { data } = useQuery(VOITURE, { variables: { id: (params as any)?.voitureid } });
   const voiture = useMemo<VoitureInterface | undefined>(() => data?.voiture, [data]);
   
   return <div>
