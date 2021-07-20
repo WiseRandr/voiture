@@ -1,10 +1,7 @@
-import { useQuery } from "@apollo/client";
-import { VOITURES } from "src/graphql/voiture/voiture.query";
+import Voitures from "src/features/voitures/voitures";
 
 export default function Home() {
-  const { data } = useQuery(VOITURES);
-
-  console.log(data)
-  
-  return <div>Home</div>;
+  return <div>
+    <Voitures />
+  </div>;
 }
