@@ -5,7 +5,7 @@ import { VoitureInterface } from "src/interface/voiture.int";
 import Voiture from "../voiture/voiture";
 
 export default function Voitures() {
-  const { data, loading } = useQuery(VOITURES);
+  const { data } = useQuery(VOITURES);
   const voitures = useMemo<Array<VoitureInterface>>(() => data?.voitures?.items || [], [data]);
   
   return <div>
