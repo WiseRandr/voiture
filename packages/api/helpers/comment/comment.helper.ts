@@ -21,7 +21,18 @@ export default class CommentHelper extends Database {
     const voiture = await this._voiture.findById(data.voitureid);
     if(!voiture) throw new Error(`Voiture ${data.voitureid} was not found`);
 
-    const comment = await this.create({ voitureid: voiture.id, comment: data.comment });
+    const comment = await this.create({ voitureid: voiture.id, comment: data.comment, userid: user.id });
     return comment;
+  }
+
+  async getComments(voitureid: string, user: UserData) {
+    if(!this.userHasPermission(user)) throw new Error(`Not allowed to create a comment`);
+
+    const voiture = await this._voiture.findById(voitureid);
+    if(!voiture) throw new Error(`Voiture ${voitureid} was not found`);
+
+    const comments = await this.find();
+
+    return comments.filter(c => c.voitureid === voiture.id);
   }
 }
