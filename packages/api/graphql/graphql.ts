@@ -6,6 +6,7 @@ import VoitureResolver from "./resolvers/voiture.resolver";
 import UserResolver from "./resolvers/user.resolver";
 import AuthHelper from "helpers/auth/auth.helper";
 import Context from "interface/context.int";
+import CommentResolver from "./resolvers/comment.resolver";
 
 
 export default class GraphqlHandler {
@@ -20,7 +21,7 @@ export default class GraphqlHandler {
   }
   
   async buildSchema() {
-    return await buildSchema({ resolvers: [ VoitureResolver, UserResolver ], authChecker: (arg) => AuthHelper.verifyToken(arg.context?.token) })
+    return await buildSchema({ resolvers: [ VoitureResolver, UserResolver, CommentResolver ], authChecker: (arg) => AuthHelper.verifyToken(arg.context?.token) })
   }
 
   context({ req, connection }: any): Context | null {
