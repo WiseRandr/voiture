@@ -27,7 +27,7 @@ export default class Database {
 
     const old = await this.find();
     const path = `${datapath}/${this.collection}`;
-    fs.writeFileSync(path, JSON.stringify([...old, ...data]));
+    fs.writeFileSync(path, JSON.stringify([...data, ...old]));
 
     return this;
   }
