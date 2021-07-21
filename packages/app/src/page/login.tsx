@@ -19,13 +19,13 @@ export default function Login() {
   }, [createToken, data]);
   
   return <div className="d-flex flex-column align-items-center justify-content-center h-100">
-    <div className="card bg-primary text-white">
+    <div className="card bg-primary text-white w-25">
       <div className="card-body">
         <div className="h2 text-center py-3">Se connecter</div>
         <form onSubmit={onSubmit}>
           <div className="mb-3">
             <label>Pseudo</label>
-            <input type="text" value={data.username} name="username" onChange={onChange} />
+            <input type="text" value={data.username} name="username" onChange={onChange} autoFocus />
           </div>
 
           <div>

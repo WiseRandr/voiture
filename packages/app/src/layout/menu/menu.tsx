@@ -9,6 +9,7 @@ export default function Menu() {
   const menus = useMemo(() => [
     { href: '/', icon: <CarSVG />, text: 'Voitures' },
     { href: '/se-connecter', icon: <LoginSVG />, text: 'Se connecter' },
+    { href: '/s-inscrire', icon: <LoginSVG />, text: `S'inscrire` },
   ], []);
   
   return <div className="mt-5 mx-1 text-center">

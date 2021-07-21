@@ -13,6 +13,7 @@ export const AppContainer = styled.div`
   }
 
   input {
+    width: 100%;
     border-radius: 8px;
     outline: none;
     border: unset;
