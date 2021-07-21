@@ -10,8 +10,8 @@ export default async function loadFixtures() {
     const marque = await voituremarque.create({ name: 'Tesla', slug: 'tesla', by: 'Tesla, Inc.' });
     
     await voiture.createMultiple([
-      { name: 'Tesla Black', price: 35000.00, color: '#000', marque: marque.id },
-      { name: 'Tesla White', price: 30000.00, color: '#fff', marque: marque.id }
+      { name: 'Tesla Black', price: 35000.00, color: '#000', marque: marque.id, images: ['/tesla-black-1.jpg', '/tesla-black-2.jpg', '/tesla-black-3.jpg'] },
+      { name: 'Tesla White', price: 30000.00, color: '#fff', marque: marque.id, images: ['/tesla-white-1.jpeg', '/tesla-white-2.jpeg', '/tesla-white-3.png'] }
     ]);
   }
 }

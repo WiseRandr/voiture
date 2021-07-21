@@ -26,6 +26,9 @@ export class VoitureData {
   @Field({ nullable: true })
   color: string;
 
+  @Field(type => [String])
+  images: string[];
+
   @Field()
   createdAt: string;
 

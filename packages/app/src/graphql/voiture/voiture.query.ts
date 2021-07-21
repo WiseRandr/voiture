@@ -8,6 +8,7 @@ export const VOITURES = gql`
         name
         color
         price
+        images
         createdAt
         updatedAt
       }
@@ -23,6 +24,7 @@ export const VOITURE = gql`
       name
       color
       price
+      images
       createdAt
       updatedAt
     }
