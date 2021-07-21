@@ -1,5 +1,4 @@
 import { PropsWithChildren } from "react";
-import { Link } from "react-router-dom";
 import Carousel from "src/component/carousel/carousel";
 import { VoitureInterface } from "src/interface/voiture.int";
 import { API_HOST, CURRENCY } from "src/utils/constant";

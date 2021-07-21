@@ -37,7 +37,7 @@ export default function AuthProvider({ children }: PropsWithChildren<{}>) {
   useEffect(() => {
     const token = getToken();
     if(token) login(token);
-  }, []);
+  }, [login]);
   
   return <AuthContext.Provider value={{ isconnected, loading, login, logout, user }}>{children}</AuthContext.Provider>
 }

@@ -7,7 +7,7 @@ export const VoitureCardContainer = styled.div`
   color: var(--bs-white);
   text-align: center;
   position: relative;
-  border-radius: 15px;
+  border-radius: 10px;
   height: 100%;
   padding: 5px;
   margin-top: 35px;
@@ -28,7 +28,7 @@ export const VoitureCardName = styled(Link)`
 `;
 
 export const VoitureCardImg = styled.img`
-  object-fit: contain;
+  object-fit: cover;
   height: 200px;
   background-color: var(--bs-primary);
 `;

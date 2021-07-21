@@ -32,7 +32,7 @@ export const AppContainer = styled.div`
     background-color: var(--bs-info);
     opacity: 1;
     height: fit-content;
-    margin: auto 0;
+    margin: auto 10px;
     border-radius: 1000px;
     height: 30px;
     width: 30px;
