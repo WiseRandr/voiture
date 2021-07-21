@@ -1,5 +1,6 @@
 import { useMutation } from "@apollo/client";
 import { useCallback } from "react";
+import { useHistory } from "react-router-dom";
 import LoginSVG from "src/assets/svg/login.svg";
 import { CREATE_USER } from "src/graphql/auth/auth.mutation";
 import useForm from "src/hooks/useForm"
@@ -7,18 +8,20 @@ import useForm from "src/hooks/useForm"
 export default function Register() {
   const { data, onChange } = useForm({ name: '', username: '', password: '', repeatpassword: '', dateofbirth: '' });
   const [createUser] = useMutation(CREATE_USER);
+  const history = useHistory();
 
   const onSubmit = useCallback((e) => {
     e.preventDefault();
 
     if(data.name && data.username && data.password && data.repeatpassword && data.dateofbirth) {
       createUser({ variables: data }).then(({ data }) => {
-        console.log(data);
+        if(data?.createUser) history.push('/se-connecter');
+        else throw new Error('Impossible de creer votre compte');
       }).catch(e => {
         console.log(e);
       })
     }
-  }, [createUser, data]);
+  }, [createUser, data, history]);
   
   return <div className="d-flex flex-column align-items-center justify-content-center h-100">
     <div className="card bg-primary text-white w-50">
