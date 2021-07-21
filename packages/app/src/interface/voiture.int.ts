@@ -6,4 +6,5 @@ export interface VoitureInterface {
   color?: string;
   createdAt: string;
   updatedAt: string;
+  images: string[];
 }

@@ -14,6 +14,8 @@ async function Boot() {
   
   await graphql.build(app);
 
+  app.use(express.static('public'))
+
   app.get('/', (_, res) => { res.status(200).send(`Welcome to voiture API`) });
   
   app.listen(port, () => {
