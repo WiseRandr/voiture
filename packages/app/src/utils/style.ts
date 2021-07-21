@@ -23,4 +23,25 @@ export const AppContainer = styled.div`
   .rotate-half {
     transform: rotateY(180deg);
   }
+
+  .carousel-root {
+    border-radius: 15px;
+  }
+
+  .carousel.carousel-slider .control-arrow {
+    background-color: var(--bs-info);
+    opacity: 1;
+    height: fit-content;
+    margin: auto 0;
+    border-radius: 1000px;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    padding-right: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 3px #2c2c2c;
+    cursor: pointer;
+  }
 `;
