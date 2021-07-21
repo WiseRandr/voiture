@@ -19,4 +19,8 @@ export const AppContainer = styled.div`
     border: unset;
     padding: 3px 5px;
   }
+
+  .rotate-half {
+    transform: rotateY(180deg);
+  }
 `;

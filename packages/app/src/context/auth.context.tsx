@@ -1,7 +1,7 @@
 import { useApolloClient, useLazyQuery } from "@apollo/client";
 import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { GET_AUTHORIZED_USER } from "src/graphql/auth/auth.query";
-import { clearToken, setToken } from "src/utils/token";
+import { clearToken, getToken, setToken } from "src/utils/token";
 
 interface Auth {
   isconnected: boolean;
@@ -33,6 +33,11 @@ export default function AuthProvider({ children }: PropsWithChildren<{}>) {
   useEffect(() => {
     setIsconnected(Boolean(data?.getAuthorizedUser));
   }, [data]);
+
+  useEffect(() => {
+    const token = getToken();
+    if(token) login(token);
+  }, []);
   
   return <AuthContext.Provider value={{ isconnected, loading, login, logout, user }}>{children}</AuthContext.Provider>
 }

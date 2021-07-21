@@ -9,4 +9,6 @@ export const HeaderContainer = styled.div`
   margin-right: 15px;
   position: sticky;
   top: 0;
+  display: flex;
+  flex-direction: column;
 `;
