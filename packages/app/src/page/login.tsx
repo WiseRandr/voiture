@@ -4,7 +4,8 @@ import { useHistory } from "react-router-dom";
 import LoginSVG from "src/assets/svg/login.svg";
 import { useAuth } from "src/context/auth.context";
 import { CREATE_TOKEN } from "src/graphql/auth/auth.mutation";
-import useForm from "src/hooks/useForm"
+import useForm from "src/hooks/useForm";
+const { NotificationManager } = require("react-notifications");
 
 export default function Login() {
   const { data, onChange } = useForm({ username: '', password: '' });
@@ -17,8 +18,14 @@ export default function Login() {
 
     if(data.username && data.password) {
       createToken({ variables: data }).then(({ data }) => {
-        if(data.createToken) login(data.createToken)
-      }).catch(e => console.log(e))
+        if(data.createToken) {
+          NotificationManager.success('Connexion avec succes', 'Succes');
+          login(data.createToken);
+        } else throw new Error('Impossible de se connecter avec votre compte');
+      }).catch(e => {
+        console.log(e);
+        NotificationManager.error(e.message, 'Erreur');
+      })
     }
   }, [createToken, data, login]);
 

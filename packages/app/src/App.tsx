@@ -7,6 +7,7 @@ import Login from "./page/login";
 import Register from "./page/register";
 import VoiturePageSingle from "./page/voiture";
 import { AppContainer, GlobalStyle } from "./utils/style";
+const { NotificationContainer } = require('react-notifications');
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
             </div>
           </AppContainer>
         </AuthProvider>
+        <NotificationContainer />
       </BrowserRouter>
     </ApolloProvider>
   );

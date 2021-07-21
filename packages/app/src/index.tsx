@@ -4,6 +4,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import 'src/assets/scss/custom.scss';
+import 'react-notifications/lib/notifications.css'
 
 ReactDOM.render(
   <React.StrictMode>

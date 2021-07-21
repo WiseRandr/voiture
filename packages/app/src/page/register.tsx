@@ -3,7 +3,8 @@ import { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import LoginSVG from "src/assets/svg/login.svg";
 import { CREATE_USER } from "src/graphql/auth/auth.mutation";
-import useForm from "src/hooks/useForm"
+import useForm from "src/hooks/useForm";
+const { NotificationManager } = require("react-notifications");
 
 export default function Register() {
   const { data, onChange } = useForm({ name: '', username: '', password: '', repeatpassword: '', dateofbirth: '' });
@@ -15,10 +16,14 @@ export default function Register() {
 
     if(data.name && data.username && data.password && data.repeatpassword && data.dateofbirth) {
       createUser({ variables: data }).then(({ data }) => {
-        if(data?.createUser) history.push('/se-connecter');
+        if(data?.createUser) {
+          NotificationManager.success('Compte cree avec succes', 'Succes');
+          history.push('/se-connecter');
+        }
         else throw new Error('Impossible de creer votre compte');
       }).catch(e => {
         console.log(e);
+        NotificationManager.error(e.message, 'Erreur');
       })
     }
   }, [createUser, data, history]);
