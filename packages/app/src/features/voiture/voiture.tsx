@@ -2,7 +2,7 @@ import { PropsWithChildren } from "react";
 import { Link } from "react-router-dom";
 import Carousel from "src/component/carousel/carousel";
 import { VoitureInterface } from "src/interface/voiture.int";
-import { CURRENCY } from "src/utils/constant";
+import { API_HOST, CURRENCY } from "src/utils/constant";
 import { VoitureCardContainer, VoitureCardImg, VoitureCardName, VoitureCardPrice } from "./voiture.style";
 
 export default function Voiture({ voiture }: PropsWithChildren<{ voiture: VoitureInterface }>) {
@@ -10,7 +10,7 @@ export default function Voiture({ voiture }: PropsWithChildren<{ voiture: Voitur
     <Carousel showThumbs={false} showStatus={false}>
       {voiture.images.map(src => (
         <div key={src}>
-          <VoitureCardImg src={`http://localhost:4000` + src} />
+          <VoitureCardImg src={API_HOST + src} />
         </div>
       ))}
     </Carousel>
