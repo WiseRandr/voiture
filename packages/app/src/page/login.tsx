@@ -1,22 +1,30 @@
 import { useMutation } from "@apollo/client";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import LoginSVG from "src/assets/svg/login.svg";
+import { useAuth } from "src/context/auth.context";
 import { CREATE_TOKEN } from "src/graphql/auth/auth.mutation";
 import useForm from "src/hooks/useForm"
 
 export default function Login() {
   const { data, onChange } = useForm({ username: '', password: '' });
   const [createToken] = useMutation(CREATE_TOKEN);
+  const { login, isconnected } = useAuth();
+  const history = useHistory();
 
   const onSubmit = useCallback((e) => {
     e.preventDefault();
 
     if(data.username && data.password) {
       createToken({ variables: data }).then(({ data }) => {
-        console.log(data);
+        if(data.createToken) login(data.createToken)
       }).catch(e => console.log(e))
     }
-  }, [createToken, data]);
+  }, [createToken, data, login]);
+
+  useEffect(() => {
+    if(isconnected) history.push('/');
+  }, [isconnected, history]);
   
   return <div className="d-flex flex-column align-items-center justify-content-center h-100">
     <div className="card bg-primary text-white w-25">
