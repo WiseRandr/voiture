@@ -16,13 +16,17 @@ export default function Comments({ voitureid }: PropsWithChildren<{ voitureid: s
   
   return <div className="mt-4">
     {loading && <div><Logo loading={true} /></div>}
-    {!isconnected && <div>Connectez vous pour voir les commentaires</div>}
-    {isconnected && <div>
-      <CommentForm voitureid={voitureid} />
-      {comments.length === 0 && <div>Pas de commentaire disponible</div>}
-      {comments.map((comment: any) => (<div key={comment.id}>
-        {comment.comment}
-      </div>))}
+    {!isconnected && <div className="text-center">Connectez vous pour voir les commentaires</div>}
+    {isconnected && <div className="d-flex">
+      <div className="mx-3"><CommentForm voitureid={voitureid} /></div>
+      {comments.length === 0 && <div className="text-center flex-grow-1">Pas de commentaire disponible</div>}
+      <div className="flex-grow-1 my-4 mx-3">
+        {comments.map((comment: any) => (<div key={comment.id} className="d-flex justify-content-between mb-4 border-bottom">
+          <div>{comment.userid}</div>
+          <div className="flex-grow-1 mx-4">{comment.comment}</div>
+          <div>{new Date(parseInt(comment.createdAt)).toString()}</div>
+        </div>))}
+      </div>
     </div>}
   </div>;
 }

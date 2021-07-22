@@ -20,10 +20,10 @@ export default function CommentForm({ voitureid }: PropsWithChildren<{ voitureid
   
   return <form onSubmit={onSubmit}>
     <div>
-      <label>Votre commentaire:</label>
+      <label className="h5">Votre commentaire:</label>
       <textarea value={data.comment} onChange={onChange} name="comment" />
     </div>
     
-    <button>Publier</button>
+    <button className="btn btn-primary">Publier</button>
   </form>
 }
